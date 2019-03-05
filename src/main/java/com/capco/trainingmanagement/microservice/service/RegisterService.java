@@ -7,7 +7,7 @@ import com.capco.trainingmanagement.microservice.model.Employee;
 import com.capco.trainingmanagement.microservice.model.ResponseObject;
 
 
-@Service
+
 public interface RegisterService {
 
 public ResponseEntity<ResponseObject> registerUser(Employee emp);	

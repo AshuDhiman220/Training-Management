@@ -9,6 +9,7 @@ import javax.persistence.Id;
 public class RoleEntity {
 	@Id
 	@GeneratedValue(strategy= GenerationType.AUTO)
+	@Column(name="role_id")
 	private int roleId;
 	@Column(name="role_type")
 	private String roleType;

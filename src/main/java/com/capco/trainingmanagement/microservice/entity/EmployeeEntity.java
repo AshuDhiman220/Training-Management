@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity(name="employee")
 public class EmployeeEntity {
@@ -24,6 +26,7 @@ public class EmployeeEntity {
 	@Column(name="dob")
 	private Date dob;
 	@Column(name="password")
+	@JsonIgnore
 	private String password;
 	@Column(name="skill")
 	private String skill;
