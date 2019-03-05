@@ -48,7 +48,8 @@ public class RegisterServiceImpl implements RegisterService {
       roleEntity=new RoleEntity();
       employee.setEmail(emp.getEmail());
       employee.setDob(emp.getDob());
-      employee.setEmployeeName(emp.getEmpName());
+      employee.setFirstName(emp.getFirstName());
+      employee.setLastName(emp.getLastName());
       employee.setPassword(encoder.encode(emp.getPassword()));
       employee.setSkill(emp.getSkill());
       

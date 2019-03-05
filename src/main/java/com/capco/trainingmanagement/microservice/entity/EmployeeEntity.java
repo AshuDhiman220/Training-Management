@@ -19,8 +19,10 @@ public class EmployeeEntity {
 	@Id
 	@GeneratedValue(strategy= GenerationType.AUTO)
 	private int id;
-	@Column(name="emp_name")
-	 private String employeeName;
+	@Column(name="firstName")
+	 private String firstName;
+	@Column(name="lastName")
+	private String lastName;
 	@Column(name="email")
 	private String email;
 	@Column(name="dob")
@@ -30,20 +32,23 @@ public class EmployeeEntity {
 	private String password;
 	@Column(name="skill")
 	private String skill;
+	@Column(name="bio")
+	private String bio;
     @OneToOne
     @JoinColumn(name="role_id")
 	private RoleEntity roleEntity;
-	/**
-	 * @return the employeeName
-	 */
-	public String getEmployeeName() {
-		return employeeName;
+	
+	public String getFirstName() {
+		return firstName;
 	}
-	/**
-	 * @param employeeName the employeeName to set
-	 */
-	public void setEmployeeName(String employeeName) {
-		this.employeeName = employeeName;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 	/**
 	 * @return the email
@@ -104,6 +109,12 @@ public class EmployeeEntity {
 	 */
 	public void setRoleEntity(RoleEntity roleEntity) {
 		this.roleEntity = roleEntity;
+	}
+	public String getBio() {
+		return bio;
+	}
+	public void setBio(String bio) {
+		this.bio = bio;
 	}
 	
 
