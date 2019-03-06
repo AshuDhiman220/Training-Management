@@ -1,14 +1,16 @@
 package com.capco.trainingmanagement.microservice.service;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
 
+import com.capco.trainingmanagement.microservice.exceptions.ValidationFailureException;
 import com.capco.trainingmanagement.microservice.model.Employee;
 import com.capco.trainingmanagement.microservice.model.ResponseObject;
+import com.capco.trainingmanagement.microservice.model.SecurityQa;
 
 
 
 public interface RegisterService {
 
-public ResponseEntity<ResponseObject> registerUser(Employee emp);	
+public ResponseEntity<ResponseObject> registerUser(Employee emp) throws ValidationFailureException, Exception;	
+//public ResponseEntity<ResponseObject> verfiySecurityQA(SecurityQa sqa) throws ValidationFailureException, Exception;
 }

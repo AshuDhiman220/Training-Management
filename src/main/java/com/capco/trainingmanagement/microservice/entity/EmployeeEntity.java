@@ -38,6 +38,14 @@ public class EmployeeEntity {
     @JoinColumn(name="role_id")
 	private RoleEntity roleEntity;
 	
+    
+    
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getFirstName() {
 		return firstName;
 	}
@@ -115,6 +123,12 @@ public class EmployeeEntity {
 	}
 	public void setBio(String bio) {
 		this.bio = bio;
+	}
+	@Override
+	public String toString() {
+		return "EmployeeEntity [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
+				+ ", dob=" + dob + ", password=" + password + ", skill=" + skill + ", bio=" + bio + ", roleEntity="
+				+ roleEntity + "]";
 	}
 	
 

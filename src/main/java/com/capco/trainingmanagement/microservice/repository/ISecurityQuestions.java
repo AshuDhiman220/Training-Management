@@ -8,4 +8,5 @@ import com.capco.trainingmanagement.microservice.entity.SecurityQaEntity;
 @Repository
 public interface ISecurityQuestions extends JpaRepository<SecurityQaEntity, Integer> {
 
+	public SecurityQaEntity findByEmployeeEntityId(int id);
 }

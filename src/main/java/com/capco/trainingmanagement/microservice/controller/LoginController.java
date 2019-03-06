@@ -21,7 +21,7 @@ import com.capco.trainingmanagement.microservice.model.LoginUser;
 import com.capco.trainingmanagement.microservice.service.LoginService;
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@RequestMapping("/token")
+@RequestMapping("/employee")
 public class LoginController {
 	
 	    @Autowired

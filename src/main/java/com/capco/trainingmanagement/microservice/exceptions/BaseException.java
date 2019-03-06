@@ -4,16 +4,25 @@ import org.springframework.http.HttpStatus;
 
 public class BaseException extends Exception{
 
-private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
+	private final int code;
+
+	private static final HttpStatus httpStatus = HttpStatus.BAD_REQUEST;
+
+	public BaseException(int code) {
+		super();
+		this.code = code;
 	
-	private final HttpStatus status;
-	
-    public BaseException(String message, HttpStatus status) {
-	    super(message);
-	    this.status = status;
 	}
 
-	public HttpStatus getStatus() {
-	    return status;
+	public int getCode() {
+		return code;
+	}
+
+	/**
+	 * @return the httpStatus
+	 */
+	public HttpStatus getHttpStatus() {
+		return httpStatus;
 	}
 }

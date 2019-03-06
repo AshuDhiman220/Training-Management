@@ -1,5 +1,7 @@
 package com.capco.trainingmanagement.microservice.repository;
 
+import java.util.Date;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -10,6 +12,6 @@ public interface IUserRegistration extends JpaRepository<EmployeeEntity,Integer>
 
 	EmployeeEntity findByEmail(String email);
 
-
+	EmployeeEntity findByDob(Date dob);
 	
 }

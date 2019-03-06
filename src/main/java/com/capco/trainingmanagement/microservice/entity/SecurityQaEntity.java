@@ -13,6 +13,7 @@ public class SecurityQaEntity {
 
 	@Id
 	@GeneratedValue(strategy= GenerationType.AUTO)
+	@Column(name="question_id")
 	private int questionId;
 	@Column(name="question")
 	private String question;
