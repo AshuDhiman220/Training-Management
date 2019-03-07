@@ -1,14 +1,9 @@
 package com.capco.trainingmanagement.microservice.service.impl;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.forwardedUrl;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
 import java.util.Map;
 
-import javax.management.relation.Role;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,15 +11,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.capco.trainingmanagement.microservice.config.WebConfig;
 import com.capco.trainingmanagement.microservice.entity.EmployeeEntity;
 import com.capco.trainingmanagement.microservice.entity.RoleEntity;
 import com.capco.trainingmanagement.microservice.entity.SecurityQaEntity;
 import com.capco.trainingmanagement.microservice.exceptions.ValidationFailureException;
 import com.capco.trainingmanagement.microservice.model.Employee;
 import com.capco.trainingmanagement.microservice.model.ResponseObject;
-import com.capco.trainingmanagement.microservice.model.SecurityQa;
-import com.capco.trainingmanagement.microservice.model.Status;
 import com.capco.trainingmanagement.microservice.repository.IRoleRepository;
 import com.capco.trainingmanagement.microservice.repository.ISecurityQuestions;
 import com.capco.trainingmanagement.microservice.repository.IUserRegistration;
