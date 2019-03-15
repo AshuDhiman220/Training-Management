@@ -3,17 +3,31 @@ package com.capco.trainingmanagement.microservice.model;
 import java.util.Date;
 import java.util.Map;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+@JsonInclude(Include.NON_DEFAULT)
 public class Employee {
 
+	private int id;
 	private String firstName;
 	private String lastName;
 	private String email;
 	private String password;
-	private Date dob;
+	private String dob;
 	private String skill;
 	private Map<String, String> securityQa;
 	private String roleType;
 	private long contactNumber;
+
+	
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public String getFirstName() {
 		return firstName;
@@ -47,11 +61,11 @@ public class Employee {
 		this.password = password;
 	}
 
-	public Date getDob() {
+	public String getDob() {
 		return dob;
 	}
 
-	public void setDob(Date dob) {
+	public void setDob(String dob) {
 		this.dob = dob;
 	}
 

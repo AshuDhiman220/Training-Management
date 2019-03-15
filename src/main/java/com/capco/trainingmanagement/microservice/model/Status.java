@@ -1,10 +1,25 @@
 package com.capco.trainingmanagement.microservice.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
+@JsonInclude(Include.NON_NULL)
 public class Status {
 	
 	private int code;
 	private String message;
 	private String details;
+	
+	
+	public Status() {
+		super();
+	}
+	public Status(int code, String message,String details) {
+		super();
+		this.code = code;
+		this.message = message;
+		this.details=details;
+	}
 	/**
 	 * @return the code
 	 */

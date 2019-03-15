@@ -1,42 +1,39 @@
 package com.capco.trainingmanagement.microservice.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 @Entity(name="security_qa")
 public class SecurityQaEntity {
 
 	@Id
-	@GeneratedValue(strategy= GenerationType.AUTO)
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	@Column(name="question_id")
 	private int questionId;
 	@Column(name="question")
 	private String question;
 	@Column(name="answer")
 	private String answer;
-	@OneToOne
-    @JoinColumn(name="id")
+	@ManyToOne(fetch = FetchType.LAZY,  cascade = {CascadeType.PERSIST})
+	@JoinColumn(name="id")
 	private EmployeeEntity employeeEntity;
-	/**
-	 * @return the questionId
-	 */
+	
 	public int getQuestionId() {
 		return questionId;
 	}
-	/**
-	 * @param questionId the questionId to set
-	 */
+	
 	public void setQuestionId(int questionId) {
 		this.questionId = questionId;
 	}
-	/**
-	 * @return the question
-	 */
+	
 	public String getQuestion() {
 		return question;
 	}

@@ -1,23 +1,30 @@
 package com.capco.trainingmanagement.microservice.entity;
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 
 @Entity(name="employee")
+@JsonInclude(Include.NON_NULL)
 public class EmployeeEntity {
 	@Id
-	@GeneratedValue(strategy= GenerationType.AUTO)
+	@Column(name="id")
 	private int id;
 	@Column(name="firstName")
 	 private String firstName;
@@ -34,10 +41,15 @@ public class EmployeeEntity {
 	private String skill;
 	@Column(name="bio")
 	private String bio;
-    @OneToOne
-    @JoinColumn(name="role_id")
-	private RoleEntity roleEntity;
-	
+   
+    @OneToMany(targetEntity=SecurityQaEntity.class,
+            cascade = {CascadeType.PERSIST, CascadeType.MERGE},
+            orphanRemoval = false,
+            mappedBy = "employeeEntity",
+            fetch = FetchType.EAGER
+    )
+    @JsonIgnore
+	private List<SecurityQaEntity> sQA; 
     
     
 	public int getId() {
@@ -106,30 +118,22 @@ public class EmployeeEntity {
 	public void setSkill(String skill) {
 		this.skill = skill;
 	}
-	/**
-	 * @return the roleEntity
-	 */
-	public RoleEntity getRoleEntity() {
-		return roleEntity;
-	}
-	/**
-	 * @param roleEntity the roleEntity to set
-	 */
-	public void setRoleEntity(RoleEntity roleEntity) {
-		this.roleEntity = roleEntity;
-	}
+	
 	public String getBio() {
 		return bio;
 	}
 	public void setBio(String bio) {
 		this.bio = bio;
 	}
-	@Override
-	public String toString() {
-		return "EmployeeEntity [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-				+ ", dob=" + dob + ", password=" + password + ", skill=" + skill + ", bio=" + bio + ", roleEntity="
-				+ roleEntity + "]";
+	
+	public List<SecurityQaEntity> getsQA() {
+		return sQA;
 	}
+	public void setsQA(List<SecurityQaEntity> sQA) {
+		this.sQA = sQA;
+	}
+
+	
 	
 
 }

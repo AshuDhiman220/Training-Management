@@ -1,5 +1,8 @@
 package com.capco.trainingmanagement.microservice.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +21,7 @@ import com.capco.trainingmanagement.microservice.model.ApiResponse;
 import com.capco.trainingmanagement.microservice.model.Employee;
 import com.capco.trainingmanagement.microservice.model.ResponseObject;
 import com.capco.trainingmanagement.microservice.model.SecurityQa;
+import com.capco.trainingmanagement.microservice.model.Status;
 import com.capco.trainingmanagement.microservice.service.LoginService;
 import com.capco.trainingmanagement.microservice.service.RegisterService;
 import com.capco.trainingmanagement.microservice.util.CommonUtility;
@@ -39,12 +43,24 @@ public class RegisterController {
 	}
 
 	@GetMapping("/{email}")
-	public ApiResponse<EmployeeEntity> getOne(@PathVariable String email) {
-		return new ApiResponse<>(HttpStatus.OK.value(), "success", userService.findOne(email));
+	public ApiResponse<EmployeeEntity> getOne(@PathVariable String email) throws ParseException {
+		Status st=new Status();
+		st.setCode(200);
+		st.setMessage("success");
+		EmployeeEntity emp=userService.findOne(email);
+		SimpleDateFormat sdf=new SimpleDateFormat("MM/dd/yyyy");
+		Employee employee=new Employee();
+		employee.setId(emp.getId());
+		employee.setFirstName(emp.getFirstName());
+		employee.setLastName(emp.getLastName());
+		employee.setEmail(emp.getEmail());
+		String dob1=sdf.format(emp.getDob());
+		System.out.println("Date is----"+sdf.parse(dob1));
+		employee.setDob(dob1);
+		employee.setSkill(emp.getSkill());
+		
+		return new ApiResponse<>(st, employee);
 	}
 	
-	@PostMapping("/verify/securityqa")
-	public ResponseEntity<ResponseObject> verifySecurityQA(@RequestBody SecurityQa securityQa) throws Exception{
-		return userService.verfiySecurityQA(securityQa);
-	}
+	
 }

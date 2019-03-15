@@ -1,12 +1,16 @@
 package com.capco.trainingmanagement.microservice.model;
 
-import java.util.Date;
 import java.util.Map;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+@JsonInclude(Include.NON_NULL)
 public class SecurityQa {
 	
 	private Map<String,String> qa;
-	private Date dob;
+	private String dob;
+	private String email;
+	private String password;
 
 	/**
 	 * @return the qa
@@ -22,12 +26,32 @@ public class SecurityQa {
 		this.qa = qa;
 	}
 
-	public Date getDob() {
+	public String getDob() {
 		return dob;
 	}
 
-	public void setDob(Date dob) {
+	public void setDob(String dob) {
 		this.dob = dob;
+	}
+	
+	
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
+	
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	@Override
