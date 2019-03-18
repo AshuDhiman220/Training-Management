@@ -58,6 +58,14 @@ public class RegisterController {
 		System.out.println("Date is----"+sdf.parse(dob1));
 		employee.setDob(dob1);
 		employee.setSkill(emp.getSkill());
+		employee.setLearnerRole(emp.getLearnerRole());
+		if(emp.getAdminRole()!=null)
+		employee.setAdminRole(emp.getAdminRole());
+		
+		
+		
+		if(emp.getTrainerRole()!=null)
+		employee.setTrainerRole(emp.getTrainerRole());
 		
 		return new ApiResponse<>(st, employee);
 	}

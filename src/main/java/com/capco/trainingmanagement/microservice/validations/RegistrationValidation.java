@@ -78,4 +78,9 @@ public static void lengthValidationForLastName(String name) throws ValidationFai
 		return validator.isValid(date, Locale.ENGLISH);
 	}
 
+	public static void lengthValidationForFirstCompany(String firstCompany) throws ValidationFailureException {
+				if(firstCompany==null || firstCompany.isEmpty())
+					throw new ValidationFailureException(5011);
+	}
+
 }

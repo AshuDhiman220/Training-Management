@@ -49,7 +49,7 @@ public class RegisterServiceImpl implements RegisterService {
 		RegistrationValidation.lengthValidationForFirstName(emp.getFirstName());
 		RegistrationValidation.lengthValidationForLastName(emp.getLastName());
 		for(Map.Entry<String, String> entry : emp.getSecurityQa().entrySet()) {
-		RegistrationValidation.lengthValidationForFirstName(entry.getValue());
+		RegistrationValidation.lengthValidationForFirstCompany(entry.getValue());
 		}
 		RegistrationValidation.isEmailValid(emp.getEmail());
 		RegistrationValidation.isValidPassword(emp.getPassword());
@@ -67,7 +67,11 @@ public class RegisterServiceImpl implements RegisterService {
       employee.setLastName(emp.getLastName());
       employee.setPassword(encoder.encode(emp.getPassword()));
       employee.setSkill(emp.getSkill());
-      
+      employee.setLearnerRole(true);
+      if(emp.getAdminRole()!=null)
+      employee.setAdminRole(emp.getAdminRole());
+      if(emp.getTrainerRole()!=null)
+      employee.setTrainerRole(emp.getTrainerRole());
     
      iUserRegistration.save(employee);
      System.out.println("q and a---"+emp.getSecurityQa());

@@ -3,6 +3,8 @@ package com.capco.trainingmanagement.microservice.model;
 import java.util.Date;
 import java.util.Map;
 
+import javax.persistence.Column;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @JsonInclude(Include.NON_DEFAULT)
@@ -18,6 +20,9 @@ public class Employee {
 	private Map<String, String> securityQa;
 	private String roleType;
 	private long contactNumber;
+	private Boolean trainerRole;
+	private Boolean adminRole;
+	private Boolean learnerRole;
 
 	
 	
@@ -101,4 +106,29 @@ public class Employee {
 		this.contactNumber = contactNumber;
 	}
 
+	public Boolean getTrainerRole() {
+		return trainerRole;
+	}
+
+	public void setTrainerRole(Boolean trainerRole) {
+		this.trainerRole = trainerRole;
+	}
+
+	public Boolean getAdminRole() {
+		return adminRole;
+	}
+
+	public void setAdminRole(Boolean adminRole) {
+		this.adminRole = adminRole;
+	}
+
+	public Boolean getLearnerRole() {
+		return learnerRole;
+	}
+
+	public void setLearnerRole(Boolean learnerRole) {
+		this.learnerRole = learnerRole;
+	}
+
+	
 }

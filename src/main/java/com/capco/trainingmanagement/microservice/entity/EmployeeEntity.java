@@ -41,6 +41,12 @@ public class EmployeeEntity {
 	private String skill;
 	@Column(name="bio")
 	private String bio;
+	@Column(name="TRAINER_ROLE")
+	private Boolean trainerRole;
+	@Column(name="ADMIN_ROLE")
+	private Boolean adminRole;
+	@Column(name="LEARNER_ROLE")
+	private Boolean learnerRole;
    
     @OneToMany(targetEntity=SecurityQaEntity.class,
             cascade = {CascadeType.PERSIST, CascadeType.MERGE},
@@ -132,7 +138,25 @@ public class EmployeeEntity {
 	public void setsQA(List<SecurityQaEntity> sQA) {
 		this.sQA = sQA;
 	}
-
+	public Boolean getTrainerRole() {
+		return trainerRole;
+	}
+	public void setTrainerRole(Boolean trainerRole) {
+		this.trainerRole = trainerRole;
+	}
+	public Boolean getAdminRole() {
+		return adminRole;
+	}
+	public void setAdminRole(Boolean adminRole) {
+		this.adminRole = adminRole;
+	}
+	public Boolean getLearnerRole() {
+		return learnerRole;
+	}
+	public void setLearnerRole(Boolean learnerRole) {
+		this.learnerRole = learnerRole;
+	}
+	
 	
 	
 
